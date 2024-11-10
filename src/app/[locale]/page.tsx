@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow } from '@/once-ui/components';
+import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow, Grid, SmartImage } from '@/once-ui/components';
+import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { Projects } from '@/components/work/Projects';
 
 import { baseURL, routes, renderContent } from '@/app/resources'; 
@@ -47,7 +48,8 @@ export default function Home(
 ) {
 	unstable_setRequestLocale(locale);
 	const t = useTranslations();
-	const { home, about, person, newsletter } = renderContent(t);
+	const { home, about, person, newsletter, gallery } = renderContent(t);
+
 	return (
 		<Flex
 			maxWidth="m" fillWidth gap="xl"
@@ -126,9 +128,22 @@ export default function Home(
 					</Flex>
 				
 			</Flex>
-			<RevealFx translateY="16" delay={0.6}>
-				<Projects range={[1,1]} locale={locale}/>
-			</RevealFx>
+			<Flex 
+				fillWidth 
+				direction="column" 
+				gap="24">
+				<RevealFx translateY="4">
+					<Heading
+						as="h2"
+						variant="display-strong-xs"
+						wrap="balance">
+						{gallery.title}
+					</Heading>
+				</RevealFx>
+				<Flex fillWidth>
+					<MasonryGrid />
+				</Flex>
+			</Flex>
 			{routes['/blog'] && (
 				<Flex
 					fillWidth gap="24"
@@ -146,7 +161,6 @@ export default function Home(
 					</Flex>
 				</Flex>
 			)}
-			<Projects range={[2]} locale={locale}/>
 			{ newsletter.display &&
 				<Mailchimp newsletter={newsletter} />
 			}

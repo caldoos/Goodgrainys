@@ -1,40 +1,30 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-    firstName: 'Selene',
-    lastName:  'Yu',
+    firstName: 'Calder',
+    lastName:  'Teo',
     get name() {
         return `${this.firstName} ${this.lastName}`;
     },
-    role:      'Design Engineer',
+    role:      'Creative Photographer',
     avatar:    '/images/avatar.jpg',
-    location:  'Asia/Jakarta',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-    languages: ['English', 'Bahasa']  // optional: Leave the array empty if you don't want to display languages
+    location:  'Singapore',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+    languages: ['English']  // optional: Leave the array empty if you don't want to display languages
 }
 
 const newsletter = {
     display: true,
     title: <>Subscribe to {person.firstName}'s Newsletter</>,
-    description: <>I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering.</>
+    description: <>I occasionally write about photography, technology, and share thoughts on the intersection of creativity and engineering.</>
 }
 
 const social = [
     // Links are automatically displayed.
     // Import new icons in /once-ui/icons.ts
     {
-        name: 'GitHub',
-        icon: 'github',
-        link: 'https://github.com/once-ui-system/nextjs-starter',
-    },
-    {
-        name: 'LinkedIn',
-        icon: 'linkedin',
-        link: 'https://www.linkedin.com/company/once-ui/',
-    },
-    {
-        name: 'X',
-        icon: 'x',
-        link: '',
+        name: 'Instagram',
+        icon: 'instagram',
+        link: 'https://www.instagram.com/goodgrainys/',
     },
     {
         name: 'Email',
@@ -47,8 +37,25 @@ const home = {
     label: 'Home',
     title: `${person.name}'s Portfolio`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
-    headline: <>Design engineer and builder</>,
-    subline: <>I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive<br/> user experiences. After hours, I build my own projects.</>
+    headline: <>GOODGRAINYS</>,
+    subline: <>Creating beautiful memories through photography</>,
+    gallery: {
+        label: 'Gallery',
+        title: 'My photo gallery',
+        description: `A photo collection by ${person.name}`,
+        images: [
+            { 
+                src: '/images/gallery/img-01.jpg', 
+                alt: 'image',
+                orientation: 'vertical'
+            },
+            { 
+                src: '/images/gallery/img-02.jpg', 
+                alt: 'image',
+                orientation: 'horizontal'
+            },
+        ]
+    }
 }
 
 const about = {
@@ -63,16 +70,17 @@ const about = {
         display: true
     },
     calendar: {
-        display: true,
+        display: false,
         link: 'https://cal.com'
     },
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>Selene is a Jakarta-based design engineer with a passion for transforming complex challenges into simple, elegant design solutions. Her work spans digital interfaces, interactive experiences, and the convergence of design and technology.</>
+        description: <>Calder Teo is a photographer based in Singapore. Started off as a digital photographer, he ventured into film photography and found a new interest in it. The film aesthetic – ambient tones and grainy textures, produces a unique and nostalgic feeling that inspired him to shoot film.
+        He enjoys mixing different formats and exploring new styles on both analogue as well as digital. His work focusses on telling stories and seeks to capture beautiful memories.</>
     },
     work: {
-        display: true, // set to false to hide this section
+        display: false, // set to false to hide this section
         title: 'Work Experience',
         experiences: [
             {
@@ -109,17 +117,13 @@ const about = {
         title: 'Studies',
         institutions: [
             {
-                name: 'University of Jakarta',
-                description: <>Studied software engineering.</>,
+                name: 'Singapore Management University ',
+                description: <>Bachelor of Science, Information Systems.</>,
             },
-            {
-                name: 'Build the Future',
-                description: <>Studied online marketing and personal branding.</>,
-            }
         ]
     },
     technical: {
-        display: true, // set to false to hide this section
+        display: false, // set to false to hide this section
         title: 'Technical skills',
         skills: [
             {
@@ -165,7 +169,7 @@ const blog = {
 }
 
 const work = {
-    label: 'Work',
+    label: 'Albums',
     title: 'My projects',
     description: `Design and dev projects by ${person.name}`
     // Create new project pages by adding a new .mdx file to app/blog/posts
