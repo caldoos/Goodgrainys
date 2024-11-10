@@ -5,7 +5,7 @@ import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { Projects } from '@/components/work/Projects';
 
 import { baseURL, routes, renderContent } from '@/app/resources'; 
-import { Mailchimp } from '@/components';
+import { Connect } from '@/components/Connect';
 import { Posts } from '@/components/blog/Posts';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
@@ -48,7 +48,7 @@ export default function Home(
 ) {
 	unstable_setRequestLocale(locale);
 	const t = useTranslations();
-	const { home, about, person, newsletter, gallery } = renderContent(t);
+	const { home, about, person, connect, gallery } = renderContent(t) as any;
 
 	return (
 		<Flex
@@ -161,9 +161,35 @@ export default function Home(
 					</Flex>
 				</Flex>
 			)}
-			{ newsletter.display &&
-				<Mailchimp newsletter={newsletter} />
-			}
+			{ connect.display && (
+				<Flex
+					fillWidth
+					direction="column"
+					gap="24">
+					<RevealFx translateY="4">
+						<Heading
+							as="h2"
+							variant="display-strong-xs"
+							wrap="balance">
+							{connect.title}
+						</Heading>
+						<Text
+							wrap="balance"
+							onBackground="neutral-weak"
+							variant="body-default-l">
+							{connect.description}
+						</Text>
+						<Text
+							wrap="balance"
+							onBackground="neutral-weak"
+							variant="body-default-m">
+						</Text>
+					</RevealFx>
+					<RevealFx translateY="8">
+						<Connect connect={connect} />
+					</RevealFx>
+				</Flex>
+			)}
 		</Flex>
 	);
 }

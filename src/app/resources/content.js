@@ -12,10 +12,21 @@ const person = {
     languages: ['English']  // optional: Leave the array empty if you don't want to display languages
 }
 
-const newsletter = {
-    display: true,
-    title: <>Subscribe to {person.firstName}'s Newsletter</>,
-    description: <>I occasionally write about photography, technology, and share thoughts on the intersection of creativity and engineering.</>
+const connect = {
+    display: false,
+    title: <>Connect with {person.firstName}</>,
+    description: <>Hit me up for any photography projects!</>,
+    formFields: {
+        name: {
+            required: true,
+        },
+        email: {
+            required: true,
+        },
+        message: {
+            required: true,
+        }
+    }
 }
 
 const social = [
@@ -29,7 +40,7 @@ const social = [
     {
         name: 'Email',
         icon: 'email',
-        link: 'mailto:example@gmail.com',
+        link: 'mailto:calderteo20@gmail.com',
     },
 ]
 
@@ -255,4 +266,4 @@ const gallery = {
     ]
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, connect, home, about, blog, work, gallery };

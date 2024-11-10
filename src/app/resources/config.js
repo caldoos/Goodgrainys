@@ -56,21 +56,10 @@ const display = {
     time:     true
 }
 
-const mailchimp = {
-    action: 'https://url/subscribe/post?parameters',
-    effects: {
-        mask: 'topRight',           // none | cursor | topLeft | topRight | bottomLeft | bottomRight
-        gradient: {
-            display: true,
-            opacity: 0.6            // 0 - 1
-        },
-        dots: {
-            display: false,
-        },
-        lines: {
-            display: false,
-        },
-    }
+const connect = {
+    display: true,
+    title: 'Connect',
+    description: 'Hit me up for any photography projects!',
 }
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, baseURL, i18n, i18nOptions };
+export { routes, protectedRoutes, effects, style, display, connect, baseURL, i18n, i18nOptions };
